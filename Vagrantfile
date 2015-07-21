@@ -7,6 +7,8 @@
 # you're doing.
 Vagrant.configure(2) do |config|
   config.vm.box = "hashicorp/precise32"
+  # config.vm.forward_port 3000, 3000
+  # config.vm.share_folder "app", "/vagrant/app", "app"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
