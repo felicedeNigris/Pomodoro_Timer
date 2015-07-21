@@ -9,7 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/buzz/1.1.0/buzz.min.js"></script><!-- Buzz Library -->
     <script>
         var myapp = angular.module('MyApp', []);
-        myapp.controller('timer',['$scope', '$interval', 'alarmPlayer' function($scope, $interval, alarmPlayer){
+        myapp.controller('timer',['$scope', '$interval', function($scope, $interval){
           /*
           ///////////////////////TIMER
           */
@@ -24,7 +24,6 @@
                   //$scope.starttime = 1500000; //reset back to 25 min
                   $interval.cancel(start); //stop timer at 0
                   $scope.breaktime = 3000; //set breaktime to 5min
-                  $scope.playAlarm(); //play alarm
                   alert("Break time.");
                 }
                 
@@ -54,7 +53,6 @@
                 $scope.starttime = 2000; //reset timer to 25 min after breaktime === 0
                 //alert("Your task timer continues.");
                 $scope.workSesh +=1; // Complete 1 work session
-                $scope.playAlarm(); //play alarm
                 alert("work session is" + $scope.workSesh);
               }
             },1000);//end breakstart
@@ -80,23 +78,21 @@
                 $interval.cancel(thrtybrkStart);//stop 30min break timer
                 $scope.starttime = 2000; //reset timer to 25 min after 30 min break
                 workSesh = 0; // reset workSesh to 0
-                $scope.playAlarm(); //play alarm
               }
             },1000);
           }// end 30 min timer
-          
-        }])// END OF TIMER CONTROLLER
+
+        /*
+        ///////////////////////ALARM Player
+        */
+        var alarm = new buzz.sound('app/assets/213149__radiy__8bit-style-bonus-effect.wav');
         
-        myapp.controller('alarmPlayer',[$scope, function($scope
+        $scope.playAlarm = function(){
+          return alarm.play();
+        }
+          
+        }]);// END OF TIMER CONTROLLER
 
-          var alarm = new buzz.sound('../assets/213149__radiy__8bit-style-bonus-effect.wav');
-
-          $scope.playAlarm = function(){
-            alarm.play();
-          }
-
-        )])
-    ;
         
     </script>
     <style>#clock{ margin-left:58px;}</style>
