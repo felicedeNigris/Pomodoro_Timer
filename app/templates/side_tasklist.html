@@ -1,0 +1,27 @@
+<div class="row" id="taskInput" >  
+<p>{{tasks}}</p>    
+  <div class="col-md-3-pull-left">
+     <form name="taskForm" class="form-inline" ng-submit="submitted=true" required>
+       <div class="form-group">
+         <label>Enter Completed Tasks</label>
+         <input type="text" name="entertask" size="29px" ng-model="newtask" required/>
+         <div ng-if="taskForm.entertask.$error.required && taskForm.entertask.$pristine">Required</div>
+         <span>
+           <div class="btn-group">
+             <button type="submit" class="btn btn-sm" ng-click="addTask(task)">Enter</button>
+             <button type="submit" class="btn btn-sm btn-danger" ng-click="clearTasks()">Clear</button>
+           </div>
+         </span>
+       </div>
+     </form><!-- \\\ END FORM \\\ -->
+  </div><!-- end col -->
+</div><!-- end row id taskInput -->
+      
+<div class="row" id="taskInput2">
+  <div class="col-md-3-pull-left">
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="task in tasks">{{task.title}}</li>
+    </ul>
+  </div>
+
+</div><!-- End Row -->

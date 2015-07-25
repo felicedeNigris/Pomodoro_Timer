@@ -4,132 +4,54 @@
   <head>
     <script data-require="jquery@2.1.4" data-semver="2.1.4" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <link data-require="bootstrap@3.3.1" data-semver="3.3.1" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+    <link href="/stylesheet.css" type="text/css" rel="stylesheet"/> <!-- Stylesheet -->
     <script data-require="bootstrap@3.3.1" data-semver="3.3.1" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script data-require="angular.js@1.4.3" data-semver="1.4.3" src="https://code.angularjs.org/1.4.3/angular.js"></script><!-- AngularJS -->
+    <script data-require="angular.js@1.4.3" data-semver="1.4.3" src="https://code.angularjs.org/1.4.3/angular.js"></script><!-- AngularJS --> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/buzz/1.1.0/buzz.min.js"></script><!-- Buzz Library -->
-    <script>
-        var myapp = angular.module('MyApp', []);
-        myapp.controller('timer',['$scope', '$interval', function($scope, $interval){
-          /*
-          ///////////////////////TIMER
-          */
-          $scope.starttime = 2000; // 25min in ms
-          $scope.format = 'mm:ss'; //minutes and seconds format 
-          var start; //variable holder for start interval 
-          
-          $scope.starttimer = function(){
-            start = $interval(function(){
-              $scope.starttime -=1000; //starttime is equal to starttime - 1 second
-                if($scope.starttime === 0){// if starttime is = 0 return 25
-                  //$scope.starttime = 1500000; //reset back to 25 min
-                  $interval.cancel(start); //stop timer at 0
-                  $scope.breaktime = 3000; //set breaktime to 5min
-                  $scope.playAlarm(); //play alarm
-                  alert("Break time.");
-                }
-                
-            },1000);
-          } //end starttimer function
-          
-          $scope.killtimer = function(starttimer){ //inject starttimer as dependency bc we want to access start
-            return $interval.cancel(start);// turn off start
-          }
-          
-          $scope.resettimer = function(starttimer){
-            $interval.cancel(start); //turn off start aka timer
-            $scope.starttime = 1500000; // set to 25 min
-          }
-          
-          /*
-           ////////////////////////BREAK TIMER
-          */
-          $scope.breaktime = 3000;// 5 min 
-          var breakstart; //variable holder for break start $interval
-          
-          $scope.startbreak = function(){
-            breakstart = $interval(function(){
-              $scope.breaktime -=1000; // breaktime is = to breaktime - 1 sec
-              if($scope.breaktime === 0){
-                $interval.cancel(breakstart);
-                $scope.starttime = 2000; //reset timer to 25 min after breaktime === 0
-                $scope.workSesh +=1; // Complete 1 work session
-                $scope.playAlarm(); //play alarm
-                //alert("work session is" + $scope.workSesh);
-              }
-            },1000);//end breakstart
-          } //end startbreak function
-          
-          $scope.resetbreak = function(startbreak){ //inject startbreak to access breakstart
-            $interval.cancel(breakstart); //cancel breakstart timer
-            $scope.breaktime = 300000; // set break back to 5min
-          }
-          /*
-          /////////////////////WORK SESSIONS + 30 MIN BREAK TIMER
-          */
-          
-          $scope.workSesh = 0; //work session
-          
-          $scope.thrtybrk = 5000; //30 min
-          var thrtybrkStart; // var holder for 30 min break $interval
-          
-          $scope.startThirtyMinTimer = function(){
-            thrtybrkStart = $interval(function(){
-              $scope.thrtybrk -= 1000; // 30 min break is equal to 30 min - 1 sec
-              if($scope.thrtybrk === 0){
-                $interval.cancel(thrtybrkStart);//stop 30min break timer
-                $scope.starttime = 2000; //reset timer to 25 min after 30 min break
-                workSesh = 0; // reset workSesh to 0
-                $scope.playAlarm(); //play alarm
-              }
-            },1000);
-          }// end 30 min timer
-
-        /*
-        ///////////////////////ALARM Player
-        */
-        var alarm = new buzz.sound('app/assets/213149__radiy__8bit-style-bonus-effect.wav',{
-          preload: true
-        });
-        
-        $scope.playAlarm = function(){
-          return alarm.play();
-        }
-          
-        }]);// END OF TIMER CONTROLLER
-
-        
-    </script>
-    <style>#clock{ margin-left:58px;}</style>
+     <script src="app/js/Module/myapp.js"></script> <!-- /////// ANGULAR APP MODULE /////// -->
   </head>
   
   <body>
-    <div class="container">
-      <div class="row" ng-if="(starttime >= 1000 || breaktime <= 0) && workSesh < 4">
-        <div class="col-md-12">
+    <div class="container-fluid">
+
+      
+
+
+      <div class="row" ng-if="(starttime >= 1000 || breaktime <= 0) && workSesh < 4" id="clockDiv">
+        <div class="col-md-4 col-md-offset-5" id="clockWrap">
           <h1 id="clock">{{ starttime | date:format}}</h1> <!-- start time with format filter -->
-          <button class="btn btn-primary" ng-click="starttimer()">Start</button>
-          <button class="btn btn-danger" ng-click="killtimer(starttimer)">End Timer</button>
-          <button class="btn" ng-click="resettimer()">Reset</button>
+          <div class="btn-group">
+            <button id="butBrk" class="btn btn-primary btn-xs" ng-click="starttimer()">Start</button>
+            <button id="butBrk" class="btn btn-danger btn-xs" ng-click="killtimer(starttimer)">End Timer</button>
+            <button id="butBrk" class="btn btn-xs" ng-click="resettimer()">Reset</button>
+        </div><!--end btn group -->
         </div><!-- end col -->
       </div><!-- end row -->
-      
-      <div class="row" ng-if="starttime <= 0">
-        <div class="col-md-12">
+
+      <div class="row" ng-if="starttime <= 0" id="clockDiv">
+        <div class="col-md-4 col-md-offset-5">
           <h1 id="clock">{{ breaktime | date:format}}</h1> <!-- start time with format filter -->
-          <button class="btn btn-primary" ng-click="startbreak()">Start Break</button>
-          <button class="btn" ng-click="resetbreak()">Reset Break</button>
+          <div class="btn-group">
+            <button id="butBrk" class="btn btn-primary btn-xs" ng-click="startbreak()">Start Break</button>
+            <button id="butBrk" class="btn btn-xs" ng-click="resetbreak()">Reset Break</button>
+          </div><!-- end btn-group -->
         </div>
       </div>
       
-      <div class="row" ng-show="workSesh === 4">
-        <div class="col-md-12">
-          <h1 id="clock">{{ thrtybrk | date:format}}</h1> <!-- start time with format filter -->
-          <button class="btn btn-primary" ng-click="startThirtyMinTimer()">30 min Break</button>
-          <button class="btn">Reset 30 min</button>
+      <div class="row" ng-show="workSesh === 4" id="clockDiv">
+        <div class="col-md-4 col-md-offset-5">
+          <h1 id="clock">{{ thrtybrk | date:format}}</h1> <!-- start time with format filter -->"
+            <div class="btn-group">
+              <button id="butBrk" class="btn btn-primary btn-xs" ng-click="startThirtyMinTimer()">30 min Break</button>
+              <button id="butBrk" class="btn btn-xs">Reset 30 min</button>
+            </div> <!-- end btn-group -->
         </div>
       </div>
     </div>
     
-    
+    <ng-include src="'app/templates/side_tasklist.html'" ng-controller="finishedTasks" class="pull-left"></ng-include> 
+  
   </body>
+  
+  
 </html>

@@ -1,0 +1,50 @@
+#clock{ margin-left:115px;}
+
+input.ng-invalid{border:1px solid red;}
+
+.ng-show{color:red;}
+    
+span{font-weight:800;}
+
+#taskInput{background-color:#DEDEDE; width:244px; margin-left:.5px; padding-left:10px; padding-top:50px;}
+
+#taskInput2{background-color:#DEDEDE; width:244px; margin-left:.5px; padding-left:10px; height:1080px;}
+
+.list-group{width:210px;}
+
+div button{min-width:105px;} /* button placement */
+
+    
+.btn-group{padding-top:12px; padding-bottom:12px;}
+
+.pull-left {
+  top:-10px;
+  float:left !important;
+  margin-top:-110px;
+  position:relative;
+}
+
+
+@media screen and (max-width:1058px){ 
+
+  #clockDiv{float:right;}
+  .pull-left{top:-60px;}
+}
+
+@media screen and (max-width:585px){ 
+  /*
+  #taskInput{width:25%;}
+  #taskInput2{width:25%;} 
+  .list-group{width:25%;}
+  .btn-group{width:25%;}
+  */
+  #butBrk{
+    clear:both; /* clears left float on buttons */
+    right:-90px;
+  }
+  #clockDiv{
+    float:right;
+  }
+  .pull-left{top:-80px;}
+}
+
