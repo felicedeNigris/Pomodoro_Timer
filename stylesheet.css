@@ -38,7 +38,7 @@ div button{min-width:105px;} /* button placement */
   .list-group{width:25%;}
   .btn-group{width:25%;}
   */
-  #butBrk{
+  butBrk{
     clear:both; /* clears left float on buttons */
     right:-90px;
   }

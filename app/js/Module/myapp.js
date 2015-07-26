@@ -1,4 +1,4 @@
-
+// refactor the variable names to be written likeThis
 
 
  var myapp = angular.module('MyApp', []);
@@ -80,13 +80,13 @@
         /*
         ///////////////////////ALARM Player
         */
-        var alarm = new buzz.sound('app/assets/213149__radiy__8bit-style-bonus-effect.wav',{
-          preload: true
-        });
-        
-        $scope.playAlarm = function(){
-          return alarm.play();
-        }
+            var alarm = new buzz.sound('app/assets/213149__radiy__8bit-style-bonus-effect.wav',{
+            preload: true
+          });
+          
+          $scope.playAlarm = function(){
+            return alarm.play();
+          }
           
         }]);// END OF TIMER CONTROLLER
 

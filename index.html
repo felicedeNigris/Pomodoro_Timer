@@ -21,9 +21,9 @@
         <div class="col-md-4 col-md-offset-5" id="clockWrap">
           <h1 id="clock">{{ starttime | date:format}}</h1> <!-- start time with format filter -->
           <div class="btn-group">
-            <button id="butBrk" class="btn btn-primary btn-xs" ng-click="starttimer()">Start</button>
-            <button id="butBrk" class="btn btn-danger btn-xs" ng-click="killtimer(starttimer)">End Timer</button>
-            <button id="butBrk" class="btn btn-xs" ng-click="resettimer()">Reset</button>
+            <button id="play-but" class="btn btn-primary btn-xs but-brk" ng-click="starttimer()">Start</button>
+            <button id="pause-but" class="btn btn-danger btn-xs but-brk" ng-click="killtimer(starttimer)">End Timer</button>
+            <button id="reset-but" class="btn btn-xs but-brk" ng-click="resettimer()">Reset</button>
         </div><!--end btn group -->
         </div><!-- end col -->
       </div><!-- end row -->
