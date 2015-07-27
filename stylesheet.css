@@ -1,4 +1,6 @@
-#clock{ margin-left:115px;}
+#clock-time{ margin-left:115px;} /* clock time digits */
+#clock-time-2{ margin-left:65px;} /* clock break time digits */
+#clock-time-3{ margin-left:65px;} /* clock 30min break time digits */
 
 input.ng-invalid{border:1px solid red;}
 
@@ -6,9 +8,7 @@ input.ng-invalid{border:1px solid red;}
     
 span{font-weight:800;}
 
-#taskInput{background-color:#DEDEDE; width:244px; margin-left:.5px; padding-left:10px; padding-top:50px;}
-
-#taskInput2{background-color:#DEDEDE; width:244px; margin-left:.5px; padding-left:10px; height:1080px;}
+#taskInput{background-color:#DEDEDE; width:244px; margin-left:.5px; padding-left:10px; padding-top:50px;height:1080px;}
 
 .list-group{width:210px;}
 
@@ -25,26 +25,46 @@ div button{min-width:105px;} /* button placement */
 }
 
 
+
 @media screen and (max-width:1058px){ 
 
   #clockDiv{float:right;}
+  #clockDiv-two{float:right;}
+  #clock-time-2{ margin-left:95px;}
+  #clockDiv-three{float:right;}
   .pull-left{top:-60px;}
 }
 
+@media screen and (min-width:992px){ 
+  
+  #clockDiv{float:none;}
+  #clockDiv-two{float:none;}
+  #clockDiv-three{float:none;}
+  #reset-but{bottom:22px; left:210px;}
+}
+
 @media screen and (max-width:585px){ 
-  /*
-  #taskInput{width:25%;}
-  #taskInput2{width:25%;} 
-  .list-group{width:25%;}
-  .btn-group{width:25%;}
-  */
-  butBrk{
+  
+  #play-but, #pause-but, #reset-but, #break-but, #pause-break-but, #thirty-brk-but, #thirty-reset-but {
     clear:both; /* clears left float on buttons */
     right:-90px;
   }
   #clockDiv{
     float:right;
   }
+  #clockDiv-two{
+    float:right;
+    margin-left:30px;
+  }
+  #clockDiv-three{
+    float:right;
+  }
+  
   .pull-left{top:-80px;}
-}
 
+  #thirty-reset-but , #thirty-brk-but{ margin-right:95px;}
+  #clock-time-3{ margin-left:95px;}
+}
+@media screen and (min-width:1029px){ 
+  #reset-but{bottom:0px; left:0px;}
+}
