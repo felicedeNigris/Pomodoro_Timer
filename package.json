@@ -7,7 +7,6 @@
   "dependencies": {
     "express": "^4.13.1"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/felicedeNigris/Pomodoro_Timer.git"
@@ -18,7 +17,8 @@
   "homepage": "https://github.com/felicedeNigris/Pomodoro_Timer#readme"
   },
   "scripts":{
-    "postinstall": "bower install"
+    "postinstall": "bower install",
+    "start": "node server.js"
   }
 }
 
