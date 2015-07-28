@@ -1,25 +1,24 @@
 {
-  "name": "pomodoro_timer",
+  "name": "pomodoro-timer",
   "version": "1.0.0",
-  "description": "Task Timer App",
-  "author": "Felice DeNigris",
-  "license": "ISC",
+  "description": "Timer",
+  "main": "server.js",
   "dependencies": {
     "express": "^4.13.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/felicedeNigris/Pomodoro_Timer.git"
   },
+  "author": "Felice DeNigris",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/felicedeNigris/Pomodoro_Timer/issues"
   },
   "homepage": "https://github.com/felicedeNigris/Pomodoro_Timer#readme"
-  },
-  "scripts":{
-    "postinstall": "bower install",
-    "start": "node server.js"
-  }
 }
-
-
