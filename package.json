@@ -16,4 +16,10 @@
     "url": "https://github.com/felicedeNigris/Pomodoro_Timer/issues"
   },
   "homepage": "https://github.com/felicedeNigris/Pomodoro_Timer#readme"
+  },
+  "scripts":{
+    "postinstall": "bower install"
+  }
 }
+
+
