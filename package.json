@@ -2,12 +2,6 @@
   "name": "pomodoro_timer",
   "version": "1.0.0",
   "description": "Task Timer App",
-  "main": "index.js",
-  "scripts": {
-    "postinstall":"bower install"
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
   "author": "Felice DeNigris",
   "license": "ISC",
   "dependencies": {
