@@ -4,6 +4,7 @@
   "description": "Timer",
   "main": "server.js",
   "dependencies": {
+    "bower": "^1.4.1",
     "express": "^4.13.1"
   },
   "devDependencies": {},
