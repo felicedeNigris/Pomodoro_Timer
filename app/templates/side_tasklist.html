@@ -1,4 +1,5 @@
 <div class="row" id="taskInput" ng-controller="finishedTasks" >  
+ <!--<p>{{tasks}}</p> -->
   <div class="col-md-3-pull-left">
      <form name="taskForm" class="form-inline" ng-submit="submitted=true" required>
        <div class="form-group">
@@ -7,7 +8,7 @@
          <div ng-if="taskForm.entertask.$error.required && taskForm.entertask.$pristine">Required</div>
          <span>
            <div class="btn-group">
-             <button type="submit" class="btn btn-sm" ng-click="addTask(task)">Enter</button>
+             <button type="submit" class="btn btn-sm" ng-click="addTask(newTask)">Enter</button>
              <button type="submit" class="btn btn-sm btn-danger" ng-click="clearTasks()">Clear</button>
            </div>
          </span>
