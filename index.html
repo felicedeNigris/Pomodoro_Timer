@@ -8,7 +8,10 @@
     <script data-require="bootstrap@3.3.1" data-semver="3.3.1" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script data-require="angular.js@1.4.3" data-semver="1.4.3" src="https://code.angularjs.org/1.4.3/angular.js"></script><!-- AngularJS --> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/buzz/1.1.0/buzz.min.js"></script><!-- Buzz Library -->
-     <script src="app/js/Module/myApp.js"></script> <!-- /////// ANGULAR APP MODULE /////// -->
+   
+    <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script> <!-- ////// FIREBASE ///// -->
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.1/angularfire.min.js"></script> <!-- include angularfire -->
+     
   </head>
   
   <body>
@@ -49,6 +52,6 @@
     
     <ng-include src="'app/templates/side_tasklist.html'" ng-controller="finishedTasks"class="pull-left"></ng-include>  
   </body>
-  
+  <script src="/app/js/Module/myApp.js"></script> <!-- /////// ANGULAR APP MODULE /////// -->
   
 </html>

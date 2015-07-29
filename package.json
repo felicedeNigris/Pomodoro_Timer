@@ -1,17 +1,17 @@
 {
-  "name": "pomodoro-timer",
+  "name": "pomodorotimer",
   "version": "1.0.0",
   "description": "Timer",
-  "main": "server.js",
+  "engines":{
+    "node":"0.12.3"
+  },
   "dependencies": {
-    "bower": "^1.4.1",
     "express": "^4.13.1"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "postinstall": "./node_modules/bower/bin/bower install"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,11 @@
   "bugs": {
     "url": "https://github.com/felicedeNigris/Pomodoro_Timer/issues"
   },
-  "homepage": "https://github.com/felicedeNigris/Pomodoro_Timer#readme"
+  "homepage": "https://github.com/felicedeNigris/Pomodoro_Timer#readme",
+  "keywords": [
+    "nodejs",
+    "angularjs",
+    "pomodoro",
+    "timer"
+  ]
 }
