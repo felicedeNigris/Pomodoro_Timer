@@ -19,7 +19,7 @@
     <div class="container-fluid">
 
       
-      <div class="row" ng-if="(startTime >= 1000 || breakTime <= 0) && workSesh < 4" id="clockDiv">
+      <div class="row" ng-if="(startTime >= 1000 || breakTime <= 0) && (workSesh < 4)" id="clockDiv">
         <div class="col-md-4 col-md-offset-5" id="clockWrap">
           <h1 id="clock-time">{{ startTime | date:format}}</h1> <!-- start time with format filter -->
           <div class="btn-group">
@@ -45,7 +45,7 @@
           <h1 id="clock-time-3">{{ thrtyBrk | date:format}}</h1> <!-- start time with format filter -->
             <div class="btn-group">
               <button id="thirty-brk-but" class="btn btn-primary btn-xs" ng-click="startThirtyMinTimer()">30 min Break</button>
-              <button id="thirty-reset-but" class="btn btn-xs">Reset 30 min</button>
+              <button id="thirty-reset-but" ng-click="resetThrtybreak()" class="btn btn-xs">Reset 30 min</button>
             </div> <!-- end btn-group -->
         </div>
       </div>

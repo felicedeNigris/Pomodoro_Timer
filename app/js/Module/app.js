@@ -34,7 +34,7 @@ myApp.service('tasksService',['$firebaseArray', function($firebaseArray){
     /*
     ///////////////////////TIMER
     */
-    $scope.startTime = 2000; // 25min in ms
+    $scope.startTime = 1500000; // 25min in ms
     $scope.format = 'mm:ss'; //minutes and seconds format 
     var start; //variable holder for start interval 
     
@@ -44,7 +44,7 @@ myApp.service('tasksService',['$firebaseArray', function($firebaseArray){
           if($scope.startTime === 0){// if startTime is = 0 return 25
             //$scope.startTime = 1500000; //reset back to 25 min
             $interval.cancel(start); //stop timer at 0
-            $scope.breakTime = 3000; //set breakTime to 5min
+            $scope.breakTime = 300000; //set breakTime to 5min
             $scope.playAlarm(); //play alarm
             alert("Break time.");
           }
@@ -64,7 +64,7 @@ myApp.service('tasksService',['$firebaseArray', function($firebaseArray){
     /*
      ////////////////////////BREAK TIMER
     */
-    $scope.breakTime = 3000;// 5 min 
+    $scope.breakTime = 300000;// 5 min 
     var breakStart; //variable holder for break start $interval
     
     $scope.startBreak = function(){
@@ -72,7 +72,7 @@ myApp.service('tasksService',['$firebaseArray', function($firebaseArray){
         $scope.breakTime -=1000; // breakTime is = to breakTime - 1 sec
         if($scope.breakTime === 0){
           $interval.cancel(breakStart);
-          $scope.startTime = 2000; //reset timer to 25 min after breakTime === 0
+          $scope.startTime = 1500000; //reset timer to 25 min after breakTime === 0
           $scope.workSesh +=1; // Complete 1 work session
           $scope.playAlarm(); //play alarm
           //alert("work session is" + $scope.workSesh);
@@ -90,7 +90,7 @@ myApp.service('tasksService',['$firebaseArray', function($firebaseArray){
     
     $scope.workSesh = 0; //work session
     
-    $scope.thrtyBrk = 5000; //30 min
+    $scope.thrtyBrk = 1800000; //30 min
     var thrtybrkStart; // var holder for 30 min break $interval
     
     $scope.startThirtyMinTimer = function(){
@@ -98,11 +98,19 @@ myApp.service('tasksService',['$firebaseArray', function($firebaseArray){
         $scope.thrtyBrk -= 1000; // 30 min break is equal to 30 min - 1 sec
         if($scope.thrtyBrk === 0){
           $interval.cancel(thrtybrkStart);//stop 30min break timer
-          $scope.startTime = 2000; //reset timer to 25 min after 30 min break
-          workSesh = 0; // reset workSesh to 0
+          $scope.startTime = 1500000; //reset timer to 25 min after 30 min break
+          $scope.thrtyBrk = 1800000; //reset 30 min timer to 30 min
+          $scope.workSesh = 0; // reset workSesh to 0
           $scope.playAlarm(); //play alarm
-        }
-      },1000);
+      }
+    },1000);
+
+
+    $scope.resetThrtybreak = function(startThirtyMinTimer){ //inject startbreak to access breakstart
+      $interval.cancel(thrtybrkStart); //cancel breakstart timer
+      $scope.thrtyBrk = 300000; // set break back to 5min
+    };
+
     };// end 30 min timer
   /*
   ///////////////////////ALARM Player
