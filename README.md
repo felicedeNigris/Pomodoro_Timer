@@ -14,4 +14,4 @@ This is a Pomodoro Task Timer App
 
 ---------------------------------------------
 >This app is deployed with Heroku. 
-Go To:  http://pomodorotasktimer.herokuapp.com/
+Go To:  http://tomato-tasks.herokuapp.com/

@@ -1,7 +1,7 @@
-// refactor the variable names to be written likeThis
 
 
- var myApp = angular.module('myApp', ['firebase']);
+
+ var myApp = angular.module('myApp',['firebase', 'ngRoute']);
 
 
 
@@ -12,7 +12,6 @@ myApp.service('tasksService',['$firebaseArray', function($firebaseArray){
 
   //download tasks into a local array
   var tasksFref = $firebaseArray(ref);
-
 
   
     //get firebase object
